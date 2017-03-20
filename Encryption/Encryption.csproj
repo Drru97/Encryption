@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ByteConverter.cs" />
     <Compile Include="CommandLineArgs.cs" />
     <Compile Include="Encryption.cs" />
     <Compile Include="GenericSwap.cs" />
