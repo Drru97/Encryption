@@ -10,19 +10,13 @@ namespace Encryption
         [Option('d', "decrypt", HelpText = "Decrypt input file")]
         public bool Decrypt { get; set; }
 
-        [Option(HelpText = "File to encrypt")]
-        public string FileToEncrypt { get; set; }
+        [Option('i', "input", HelpText = "Input file")]
+        public string InputFile { get; set; }
 
-        [Option(HelpText = "Encrypted file")]
-        public string EncryptedFile { get; set; }
+        [Option('o', "output", HelpText = "Output file")]
+        public string OutputFile { get; set; }
 
-        [Option(HelpText = "File to decrypt")]
-        public string FileToDecrypt { get; set; }
-
-        [Option(HelpText = "Decrypted file")]
-        public string DecryptedFile { get; set; }
-
-        [Option('p', "password", HelpText = "Key")]
+        [Option('p', "password", HelpText = "Password to encrypt or decrypt")]
         public string Key { get; set; }
     }
 }

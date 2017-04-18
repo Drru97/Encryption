@@ -1,14 +1,14 @@
 ﻿using System.Linq;
 
-namespace Encryption
+namespace Encryption.Algorithms
 {
-    public class Encryption : IEncryptable
+    public class RC4 : IEncryptable
     {
         private const int Bitrate = 256;
         private byte[] _key;
         private int _counterX, _counterY;
 
-        public Encryption(byte[] key)
+        public RC4(byte[] key)
         {
             GenerateKey(key);
         }
@@ -29,9 +29,9 @@ namespace Encryption
             }
         }
 
-        public byte[] Encrypt(byte[] data, int size)
+        public byte[] Encrypt(byte[] data)
         {
-            var temp = data.Take(size).ToArray();
+            var temp = data.Take(data.Length).ToArray();
             var cipher = new byte[data.Length];
 
             for (int i = 0; i < data.Length; i++)
@@ -40,9 +40,9 @@ namespace Encryption
             return cipher;
         }
 
-        public byte[] Decrypt(byte[] data, int size)
+        public byte[] Decrypt(byte[] data)
         {
-            return Encrypt(data, size);
+            return Encrypt(data);
         }
 
         private byte KeyItem()

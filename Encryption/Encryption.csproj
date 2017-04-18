@@ -47,9 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Algorithms\Vinger.cs" />
     <Compile Include="ByteConverter.cs" />
+    <Compile Include="Algorithms\Cesar.cs" />
+    <Compile Include="Algorithms\Chastokil.cs" />
     <Compile Include="CommandLineArgs.cs" />
-    <Compile Include="Encryption.cs" />
+    <Compile Include="Algorithms\RC4.cs" />
     <Compile Include="GenericSwap.cs" />
     <Compile Include="IEncryptable.cs" />
     <Compile Include="Program.cs" />
