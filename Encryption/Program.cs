@@ -22,10 +22,44 @@ namespace Encryption
         {
             try
             {
-                var key = Encoding.Unicode.GetBytes(options.Key);
+                //var key = Encoding.Unicode.GetBytes(options.Key); //for rc4
+                //int key; // for cesar
+                //if (!int.TryParse(options.Key, out key))
+                //{
+                //    throw new ArgumentException("Password must be an integer value for Cesar Encryption");
+                //}
+                int type = options.Type;
                 var data = ByteConverter.ToByteArray(new FileStream(options.InputFile, FileMode.Open));
                 int size = data.Length;
-                var crypt = new RC4(key);
+                IEncryptable crypt;
+                switch (type)
+                {
+                    case 1:
+                        var key = Encoding.Unicode.GetBytes(options.Key);
+                        crypt = new RC4(key);
+                        break;
+                    case 2:
+                        crypt = new Vinger(options.Key);
+                        break;
+                    case 3:
+                        int keyCh;
+                        if (!int.TryParse(options.Key, out keyCh))
+                        {
+                            throw new ArgumentException("Password must be an integer value for Chastokil Encryption");
+                        }
+                        crypt = new Chastokil(keyCh);
+                        break;
+                    case 4:
+                        int keyCe;
+                        if (!int.TryParse(options.Key, out keyCe))
+                        {
+                            throw new ArgumentException("Password must be an integer value for Cesar Encryption");
+                        }
+                        crypt = new Cesar(keyCe);
+                        break;
+                    default:
+                        throw new ArgumentException("Type value must be in [1-4] interval");
+                }
 
                 if (options.Encrypt)
                 {

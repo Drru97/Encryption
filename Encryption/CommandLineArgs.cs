@@ -9,6 +9,11 @@ namespace Encryption
 
         [Option('d', "decrypt", HelpText = "Decrypt input file")]
         public bool Decrypt { get; set; }
+        
+        [Option('t', "type",
+            HelpText ="Select Encryption algorythm:\t 1 - RC4\t 2 - Vinger \t 3 - Chastokil\t 4 - Cesar",
+            DefaultValue = 1)]
+        public int Type { get; set; }
 
         [Option('i', "input", HelpText = "Input file")]
         public string InputFile { get; set; }
