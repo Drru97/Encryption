@@ -2,6 +2,7 @@
 
 namespace Encryption.Algorithms
 {
+    // ReSharper disable once InconsistentNaming
     public class RC4 : IEncryptable
     {
         private const int Bitrate = 256;

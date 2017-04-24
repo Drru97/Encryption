@@ -11,7 +11,7 @@ namespace Encryption
         public bool Decrypt { get; set; }
         
         [Option('t', "type",
-            HelpText ="Select Encryption algorythm:\t 1 - RC4\t 2 - Vinger \t 3 - Chastokil\t 4 - Cesar",
+            HelpText ="Select Encryption algorythm:\t 1 - RC4\t 2 - Vigener \t 3 - Chastokil\t 4 - Cesar",
             DefaultValue = 1)]
         public int Type { get; set; }
 

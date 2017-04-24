@@ -3,19 +3,15 @@ using System.Text;
 
 namespace Encryption.Algorithms
 {
-    public class Vinger : IEncryptable
+    public class Vigener : IEncryptable
     {
         private readonly string _key;
-        private readonly char[] _characters = { 'А', 'Б', 'В', 'Г', 'Д', 'Е', 'Ё', 'Ж', 'З', 'И',
-                                                'Й', 'К', 'Л', 'М', 'Н', 'О', 'П', 'Р', 'С',
-                                                'Т', 'У', 'Ф', 'Х', 'Ц', 'Ч', 'Ш', 'Щ', 'Ь', 'Ы', 'Ъ',
-                                                'Э', 'Ю', 'Я', ' ', '1', '2', '3', '4', '5', '6', '7',
-                                                '8', '9', '0', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H',
-                                                'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S',
-                                                'T', 'U', 'V', 'W', 'X', 'Y', 'Z'
+        private readonly char[] _characters = { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J',
+                                                'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T',
+                                                'U', 'V', 'W', 'X', 'Y', 'Z'
                                               };
 
-        public Vinger(string key)
+        public Vigener(string key)
         {
             _key = key;
         }
@@ -24,7 +20,7 @@ namespace Encryption.Algorithms
         {
             string input = Encoding.Unicode.GetString(data).ToUpper();
             string keyword = _key.ToUpper();
-            string result = "";
+            string result = string.Empty;
 
             int keywordIndex = 0;
 
@@ -37,7 +33,7 @@ namespace Encryption.Algorithms
 
                 keywordIndex++;
 
-                if ((keywordIndex + 1) == keyword.Length)
+                if (keywordIndex + 1 == keyword.Length)
                     keywordIndex = 0;
             }
 

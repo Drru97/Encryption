@@ -48,7 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Algorithms\Vinger.cs" />
+    <Compile Include="Algorithms\Vigener.cs" />
     <Compile Include="ByteConverter.cs" />
     <Compile Include="Algorithms\Cesar.cs" />
     <Compile Include="Algorithms\Chastokil.cs" />
