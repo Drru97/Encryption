@@ -18,12 +18,11 @@ namespace Encryption.Algorithms
 
         public byte[] Encrypt(byte[] data)
         {
-            string input = Encoding.Unicode.GetString(data).ToUpper();
+            string input = Encoding.ASCII.GetString(data).ToUpper();
             string keyword = _key.ToUpper();
             string result = string.Empty;
 
             int keywordIndex = 0;
-
             foreach (char symbol in input)
             {
                 int c = (Array.IndexOf(_characters, symbol) +
@@ -37,12 +36,12 @@ namespace Encryption.Algorithms
                     keywordIndex = 0;
             }
 
-            return Encoding.Unicode.GetBytes(result);
+            return Encoding.ASCII.GetBytes(result);
         }
 
         public byte[] Decrypt(byte[] data)
         {
-            string input = Encoding.Unicode.GetString(data).ToUpper();
+            string input = Encoding.ASCII.GetString(data).ToUpper();
             string keyword = _key.ToUpper();
             string result = "";
 
@@ -61,7 +60,7 @@ namespace Encryption.Algorithms
                     keywordIndex = 0;
             }
 
-            return Encoding.Unicode.GetBytes(result);
+            return Encoding.ASCII.GetBytes(result);
         }
     }
 }
